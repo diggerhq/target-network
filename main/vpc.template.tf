@@ -66,7 +66,7 @@ resource "aws_subnet" "public_subnet_c" {
 
 resource "aws_subnet" "public_subnet_d" {
   vpc_id                  = local.vpc.id
-  cidr_block              = var.public_subnetd_CIDR_block
+  cidr_block              = var.public_subnet_d_CIDR_block
   map_public_ip_on_launch = true
   availability_zone       = local.availability_zone_d
   tags = {
