@@ -7,7 +7,7 @@ locals {
   availability_zone_a = data.aws_availability_zones.available.names[0]
   availability_zone_b = data.aws_availability_zones.available.names[1]
   availability_zone_c = data.aws_availability_zones.available.names[0]
-  availability_zZone_d = data.aws_availability_zones.available.names[1]
+  availability_zone_d = data.aws_availability_zones.available.names[1]
 }
 
 
