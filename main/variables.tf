@@ -82,3 +82,14 @@ variable "map_public_ip" {
   default = false
 }
 
+variable "enable_ipv6" {
+  default = true
+}
+
+variable "single_nat_gateway" {
+  default = true
+}
+
+variable "enable_nat_gateway" {
+  default = true
+}
