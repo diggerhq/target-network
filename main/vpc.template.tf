@@ -46,7 +46,7 @@ resource "aws_subnet" "public_subnet_a" {
 
 resource "aws_subnet" "public_subnet_b" {
   vpc_id                  = local.vpc.id
-  cidr_block              = var.public_subnetb_CIDR_block
+  cidr_block              = var.public_subnet_b_CIDR_block
   map_public_ip_on_launch = true
   availability_zone       = local.availability_zone_b
   tags = {
@@ -56,7 +56,7 @@ resource "aws_subnet" "public_subnet_b" {
 
 resource "aws_subnet" "public_subnet_c" {
   vpc_id                  = local.vpc.id
-  cidr_block              = var.public_subnetc_CIDR_block
+  cidr_block              = var.public_subnet_c_CIDR_block
   map_public_ip_on_launch = true
   availability_zone       = local.availability_zone_c
   tags = {
@@ -66,7 +66,7 @@ resource "aws_subnet" "public_subnet_c" {
 
 resource "aws_subnet" "public_subnet_d" {
   vpc_id                  = local.vpc.id
-  cidr_block              = var.publicSubnetdCIDRblock
+  cidr_block              = var.public_subnetd_CIDR_block
   map_public_ip_on_launch = true
   availability_zone       = local.availability_zone_d
   tags = {
@@ -76,7 +76,7 @@ resource "aws_subnet" "public_subnet_d" {
 
 resource "aws_subnet" "private_subnet_a" {
   vpc_id                  = local.vpc.id
-  cidr_block              = var.privateSubnetaCIDRblock
+  cidr_block              = var.private_subnet_a_CIDR_block
   map_public_ip_on_launch = false
   availability_zone       = local.availability_zone_a
   tags = {
