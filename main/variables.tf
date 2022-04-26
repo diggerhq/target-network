@@ -32,7 +32,7 @@ variable "dns_support" {
   default = true
 }
 
-variable "dns_host_names" {
+variable "dns_hostnames" {
   default = true
 }
 
