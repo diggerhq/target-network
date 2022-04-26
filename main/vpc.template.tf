@@ -3,17 +3,10 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-locals {
-  availability_zone_a = data.aws_availability_zones.available.names[0]
-  availability_zone_b = data.aws_availability_zones.available.names[1]
-  availability_zone_c = data.aws_availability_zones.available.names[0]
-  availability_zone_d = data.aws_availability_zones.available.names[1]
-}
-
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "simple-example"
+  name = "${var.app}-vpc"
   cidr = var.vpc_CIDR_block
 
   azs             = ["${var.region}a", "${var.region}b"]
