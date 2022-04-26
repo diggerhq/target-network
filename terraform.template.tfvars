@@ -13,9 +13,5 @@ tags = {
   environment = "{{environment}}"
 }
 
-vpc_CIDR_block              = "{{environment_config.vpc_CIDR_block}}"
-public_subnet_a_CIDR_block  = "{{environment_config.public_subnet_a_CIDR_block}}"
-public_subnet_b_CIDR_block  = "{{environment_config.public_subnet_b_CIDR_block}}"
-private_subnet_a_CIDR_block = "{{environment_config.private_subnet_a_CIDR_block}}"
-private_subnet_b_CIDR_block = "{{environment_config.private_subnet_a_CIDR_block}}"
+
 
