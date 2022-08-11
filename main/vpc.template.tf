@@ -9,7 +9,7 @@ module "vpc" {
   name = "${var.app}-vpc"
   cidr = var.vpc_CIDR_block
 
-  azs                = ["${var.region}a", "${var.region}b"]
+  azs                = [data.aws_availability_zones.available.names[0], data.aws_availability_zones.available.names[1]]
   private_subnets    = [var.private_subnet_a_CIDR_block, var.private_subnet_b_CIDR_block]
   public_subnets     = [var.public_subnet_a_CIDR_block, var.public_subnet_b_CIDR_block]
   enable_ipv6        = var.enable_ipv6
