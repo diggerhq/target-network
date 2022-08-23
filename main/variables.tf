@@ -13,14 +13,8 @@ variable "tags" {
   type = map(string)
 }
 
-# The application's name
-variable "app" {
+variable "network_name" {
 }
-
-# The environment that is being built
-variable "environment" {
-}
-
 
 # Network configuration
 
