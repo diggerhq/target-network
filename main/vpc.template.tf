@@ -26,6 +26,61 @@ module "vpc" {
   vpc_tags = var.tags
 }
 
+module "vpc_endpoints" {
+  source = "terraform-aws-modules/vpc/aws/modules/vpc-endpoints"
+
+  vpc_id             = module.vpc.vpc_id
+  security_group_ids = [module.vpc.default_security_group_id]
+
+  endpoints = {
+    ecs = {
+      service             = "ecs"
+      private_dns_enabled = true
+      subnet_ids          = module.vpc.private_subnets
+    },
+    ecs_telemetry = {
+      create              = false
+      service             = "ecs-telemetry"
+      private_dns_enabled = true
+      subnet_ids          = module.vpc.private_subnets
+    },
+    ecr_api = {
+      service             = "ecr.api"
+      private_dns_enabled = true
+      subnet_ids          = module.vpc.private_subnets
+      policy              = data.aws_iam_policy_document.generic_endpoint_policy.json
+    },
+    ecr_dkr = {
+      service             = "ecr.dkr"
+      private_dns_enabled = true
+      subnet_ids          = module.vpc.private_subnets
+      policy              = data.aws_iam_policy_document.generic_endpoint_policy.json
+    },
+  }
+
+  tags =var.tags
+}
+
+data "aws_iam_policy_document" "generic_endpoint_policy" {
+  statement {
+    effect    = "Deny"
+    actions   = ["*"]
+    resources = ["*"]
+
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
+
+    condition {
+      test     = "StringNotEquals"
+      variable = "aws:SourceVpc"
+
+      values = [module.vpc.vpc_id]
+    }
+  }
+}
+
 locals {
   vpc_id = module.vpc.vpc_id
 }
