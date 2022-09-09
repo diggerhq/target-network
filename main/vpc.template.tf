@@ -15,6 +15,8 @@ module "vpc" {
   enable_ipv6        = var.enable_ipv6
   enable_nat_gateway = var.enable_nat_gateway
   single_nat_gateway = var.single_nat_gateway
+  enableDnsHostnames = true
+  enableDnsSupport   = true
 
   public_subnet_tags = var.tags
 
@@ -58,7 +60,7 @@ module "vpc_endpoints" {
     },
   }
 
-  tags =var.tags
+  tags = var.tags
 }
 
 data "aws_iam_policy_document" "generic_endpoint_policy" {
