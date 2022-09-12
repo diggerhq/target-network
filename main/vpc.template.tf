@@ -36,6 +36,11 @@ module "vpc_endpoints" {
   security_group_ids = [module.vpc.default_security_group_id]
 
   endpoints = {
+    s3 = {
+      # interface endpoint
+      service             = "s3"
+      tags                = { Name = "s3-vpc-endpoint" }
+    },
     ecs = {
       service             = "ecs"
       private_dns_enabled = true
