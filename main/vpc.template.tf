@@ -76,7 +76,7 @@ module "vpc_endpoints" {
 
 data "aws_iam_policy_document" "generic_endpoint_policy" {
   statement {
-    effect    = "Deny"
+    effect    = "Allow"
     actions   = ["*"]
     resources = ["*"]
 
