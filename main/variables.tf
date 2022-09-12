@@ -91,5 +91,9 @@ variable "single_nat_gateway" {
 }
 
 variable "enable_nat_gateway" {
-  default = false
+  default = true
+}
+
+variable "one_nat_gateway_per_az" {
+  default = true
 }
