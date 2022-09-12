@@ -41,6 +41,11 @@ module "vpc_endpoints" {
       service             = "s3"
       tags                = { Name = "s3-vpc-endpoint" }
     },
+    cloudwatch = {
+      service             = "com.amazonaws.us-east-1.logs"
+      private_dns_enabled = true
+      subnet_ids          = module.vpc.private_subnets
+    },
     ecs = {
       service             = "ecs"
       private_dns_enabled = true
