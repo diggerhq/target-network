@@ -123,13 +123,6 @@ data "aws_iam_policy_document" "generic_endpoint_policy" {
       type        = "*"
       identifiers = ["*"]
     }
-
-    condition {
-      test     = "StringNotEquals"
-      variable = "aws:SourceVpc"
-
-      values = [module.vpc.vpc_id]
-    }
   }
 }
 
