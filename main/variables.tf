@@ -13,8 +13,8 @@ variable "tags" {
   type = map(string)
 }
 
-# The application's name
-variable "app" {
+# The VPC name
+variable "vpc_name" {
 }
 
 # The environment that is being built
