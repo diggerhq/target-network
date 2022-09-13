@@ -29,6 +29,22 @@ module "vpc" {
   vpc_tags = var.tags
 }
 
+resource "aws_security_group" "vpc_tls" {
+  name_prefix = "vpc_tls"
+  description = "Allow TLS inbound traffic"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress {
+    description = "TLS from VPC"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = [module.vpc.vpc_cidr_block]
+  }
+
+  tags = var.tags
+}
+
 module "vpc_endpoints" {
   source = "terraform-aws-modules/vpc/aws//modules/vpc-endpoints"
 
@@ -69,6 +85,29 @@ module "vpc_endpoints" {
       subnet_ids          = module.vpc.private_subnets
       policy              = data.aws_iam_policy_document.generic_endpoint_policy.json
     },
+    ssm = {
+      service             = "ssm"
+      private_dns_enabled = true
+      subnet_ids          = module.vpc.private_subnets
+      security_group_ids  = [aws_security_group.vpc_tls.id]
+    },
+    ssmmessages = {
+      service             = "ssmmessages"
+      private_dns_enabled = true
+      subnet_ids          = module.vpc.private_subnets
+    },
+    ec2 = {
+      service             = "ec2"
+      private_dns_enabled = true
+      subnet_ids          = module.vpc.private_subnets
+      security_group_ids  = [aws_security_group.vpc_tls.id]
+    },
+    ec2messages = {
+      service             = "ec2messages"
+      private_dns_enabled = true
+      subnet_ids          = module.vpc.private_subnets
+    },
+
   }
 
   tags = var.tags
