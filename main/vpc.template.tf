@@ -51,7 +51,7 @@ resource "aws_security_group" "vpc_endpoints_sg" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
-    description = "TLS from VPC"
+    description = "https to VPC endpoint"
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
@@ -59,7 +59,7 @@ resource "aws_security_group" "vpc_endpoints_sg" {
   }
 
   egress {
-    description = "TLS from VPC"
+    description = "https from VPC endpoint"
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
