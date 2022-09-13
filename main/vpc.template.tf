@@ -6,7 +6,7 @@ data "aws_availability_zones" "available" {
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "${var.app}-vpc"
+  name = "${var.vpc_name}-vpc"
   cidr = var.vpc_CIDR_block
 
   azs                    = [data.aws_availability_zones.available.names[0], data.aws_availability_zones.available.names[1]]
