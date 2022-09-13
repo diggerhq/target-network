@@ -56,6 +56,7 @@ module "vpc_endpoints" {
       # interface endpoint
       service             = "s3"
       tags                = { Name = "s3-vpc-endpoint" }
+      subnet_ids          = module.vpc.private_subnets
     },
     logs = {
       service             = "logs"
