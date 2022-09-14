@@ -5,9 +5,9 @@ digger_aws_secret = "{{digger_aws_secret}}"
 vpc_name          = "{{vpc_name}}"
 environment       = "{{environment}}"
 
-{{ 'one_nat_gateway_per_az='+lower(one_nat_gateway_per_az) if one_nat_gateway_per_az is defined else '' }}
-{{ 'enable_dns_hostnames='+lower(enable_dns_hostnames) if enable_dns_hostnames is defined else '' }}
-{{ 'enable_dns_support='+lower(enable_dns_support) if enable_dns_support is defined else '' }}
+{{ 'one_nat_gateway_per_az='+one_nat_gateway_per_az | lower if one_nat_gateway_per_az is defined else '' }}
+{{ 'enable_dns_hostnames='+enable_dns_hostnames | lower if enable_dns_hostnames is defined else '' }}
+{{ 'enable_dns_support='+enable_dns_support | lower if enable_dns_support is defined else '' }}
 
 region = "{{region}}"
 
