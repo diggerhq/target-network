@@ -4,6 +4,7 @@ digger_aws_key    = "{{digger_aws_key}}"
 digger_aws_secret = "{{digger_aws_secret}}"
 vpc_name          = "{{vpc_name}}"
 environment       = "{{environment}}"
+network_name      = "{{network_name}}"
 
 {{ 'one_nat_gateway_per_az='+one_nat_gateway_per_az | lower if one_nat_gateway_per_az is defined else '' }}
 {{ 'enable_dns_hostnames='+enable_dns_hostnames | lower if enable_dns_hostnames is defined else '' }}
