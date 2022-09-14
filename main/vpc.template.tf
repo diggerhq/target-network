@@ -29,6 +29,8 @@ module "vpc" {
   vpc_tags = var.tags
 }
 
+
+{% if enable_vpc_endpoints is defined and enable_vpc_endpoints %}
 resource "aws_security_group" "vpc_sg" {
   name_prefix = "${var.vpc_name}-sg"
   description = "Security group for VPC"
@@ -150,6 +152,8 @@ data "aws_iam_policy_document" "generic_endpoint_policy" {
     }
   }
 }
+
+{% endif %}
 
 locals {
   vpc_id = module.vpc.vpc_id
