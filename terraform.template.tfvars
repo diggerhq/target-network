@@ -13,7 +13,7 @@ region = "{{region}}"
 
 tags = {
   deployed_by = "digger"
-  application = "{{app_name}}"
+  application = "{{vpc_name}}"
   environment = "{{environment}}"
 }
 
