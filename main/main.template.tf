@@ -48,12 +48,7 @@ provider "aws" {
   {% else %}
   access_key = var.aws_key
   secret_key = var.aws_secret
-  {% endif %} 
-  default_tags {
-    tags = {
-      digger_identifier = "{{network_name}}"
-    }
-  }
+  {% endif %}
 }
 
 # digger account provider
