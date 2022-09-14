@@ -97,3 +97,11 @@ variable "enable_nat_gateway" {
 variable "one_nat_gateway_per_az" {
   default = true
 }
+
+variable "enable_dns_hostnames" {
+  default = false
+}
+
+variable "enable_dns_support" {
+  default = false
+}

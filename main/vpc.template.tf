@@ -15,9 +15,9 @@ module "vpc" {
   enable_ipv6            = var.enable_ipv6
   enable_nat_gateway     = var.enable_nat_gateway
   single_nat_gateway     = var.single_nat_gateway
-  one_nat_gateway_per_az = true
-  enable_dns_hostnames   = true
-  enable_dns_support     = true
+  one_nat_gateway_per_az = var.one_nat_gateway_per_az
+  enable_dns_hostnames   = var.enable_dns_hostnames
+  enable_dns_support     = var.enable_dns_support
 
   public_subnet_tags = var.tags
 
@@ -35,7 +35,7 @@ resource "aws_security_group" "vpc_sg" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
-    description = "Https from VPC"
+    description = "SSL from VPC"
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
@@ -51,7 +51,7 @@ resource "aws_security_group" "vpc_endpoints_sg" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
-    description = "https to VPC endpoint"
+    description = "SSL to VPC endpoint"
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
@@ -59,7 +59,7 @@ resource "aws_security_group" "vpc_endpoints_sg" {
   }
 
   egress {
-    description = "https from VPC endpoint"
+    description = "SSL from VPC endpoint"
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
