@@ -101,5 +101,5 @@ variable "enable_dns_hostnames" {
 }
 
 variable "enable_dns_support" {
-  default = false
+  default = true
 }
