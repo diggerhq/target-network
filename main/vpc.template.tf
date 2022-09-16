@@ -22,8 +22,7 @@ module "vpc" {
   public_subnet_tags = var.tags
 
   tags = {
-    Owner       = "user"
-    Environment = "dev"
+    digger-target = "target-network"
   }
 
   vpc_tags = var.tags
