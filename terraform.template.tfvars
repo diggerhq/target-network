@@ -16,7 +16,7 @@ tags = {
   deployed_by = "digger"
   application = "{{vpc_name}}"
   environment = "{{environment}}"
-  digger-target = "target-ecs-shared-alb"
+  digger-target = "target-network"
 }
 
 
