@@ -18,12 +18,7 @@ module "vpc" {
   one_nat_gateway_per_az = var.one_nat_gateway_per_az
   enable_dns_hostnames   = var.enable_dns_hostnames
   enable_dns_support     = var.enable_dns_support
-
-  public_subnet_tags = var.tags
-
-  tags = {
-    digger-target = "target-network"
-  }
+  public_subnet_tags     = var.tags
 
   vpc_tags = var.tags
 }
