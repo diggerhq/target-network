@@ -6,7 +6,7 @@ data "aws_availability_zones" "available" {
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "${var.vpc_name}-vpc"
+  name = "${var.network_name}-vpc"
   cidr = var.vpc_CIDR_block
 
   azs                    = [data.aws_availability_zones.available.names[0], data.aws_availability_zones.available.names[1]]
@@ -26,7 +26,7 @@ module "vpc" {
 
 {% if enable_vpc_endpoints is defined and enable_vpc_endpoints %}
 resource "aws_security_group" "vpc_sg" {
-  name_prefix = "${var.vpc_name}-sg"
+  name_prefix = "${var.network_name}-sg"
   description = "Security group for VPC"
   vpc_id      = module.vpc.vpc_id
 

@@ -16,10 +16,6 @@ variable "tags" {
 variable "network_name" {
 }
 
-  # The VPC name
-variable "vpc_name" {
-}
-
 # Network configuration
 
 variable "instance_tenancy" {
