@@ -2,7 +2,6 @@ aws_key           = "{{aws_key}}"
 aws_secret        = "{{aws_secret}}"
 digger_aws_key    = "{{digger_aws_key}}"
 digger_aws_secret = "{{digger_aws_secret}}"
-environment       = "{{environment}}"
 network_name      = "{{network_name}}"
 
 {{ 'one_nat_gateway_per_az='+one_nat_gateway_per_az | lower if one_nat_gateway_per_az is defined else '' }}
