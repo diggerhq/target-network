@@ -73,10 +73,12 @@ module "vpc_endpoints" {
 
   endpoints = {
     s3 = {
-      # interface endpoint
+      # gateway endpoint required for private ecr
       service             = "s3"
       tags                = { Name = "s3-vpc-endpoint" }
       subnet_ids          = module.vpc.private_subnets
+      service_type        = "Gateway"
+      route_table_ids     = module.vpc.private_route_table_ids
     },
     logs = {
       service             = "logs"
