@@ -93,7 +93,7 @@ variable "one_nat_gateway_per_az" {
 }
 
 variable "enable_dns_hostnames" {
-  default = false
+  default = true
 }
 
 variable "enable_dns_support" {
