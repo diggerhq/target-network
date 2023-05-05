@@ -21,6 +21,8 @@ module "vpc" {
   public_subnet_tags     = var.tags
   public_subnet_enable_dns64 = false
   private_subnet_enable_dns64 = false
+  private_subnet_enable_resource_name_dns_aaaa_record_on_launch = false
+  public_subnet_enable_resource_name_dns_aaaa_record_on_launch = false
 
   vpc_tags = var.tags
 }
